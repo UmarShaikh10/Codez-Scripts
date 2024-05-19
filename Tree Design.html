@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Design - Python Script</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    <h2>Tree Design - Python script</h2>
+    <pre>
+        import turtle
+        
+        # Function to draw a branch
+        def draw_branch(branch_length, t):
+            # Base case: stop recursion when branch length is too small
+            if branch_length > 5:
+                # Adjust pen size based on branch length
+                t.pensize(branch_length / 10)
+                # Draw forward
+                t.forward(branch_length)
+                # Turn right for first branch
+                t.right(20)
+                # Recursively draw branch on the right
+                draw_branch(branch_length - 15, t)
+                # Turn left for second branch
+                t.left(40)
+                # Recursively draw branch on the left
+                draw_branch(branch_length - 15, t)
+                # Turn right to restore original direction
+                t.right(20)
+                # Move backward to the starting position
+                t.backward(branch_length)
+        
+        # Function to draw the tree
+        def draw_tree(trunk_length, t):
+            # Set initial direction
+            t.left(90)
+            # Lift pen
+            t.penup()
+            # Move backward to start from bottom
+            t.backward(trunk_length)
+            # Set pen down
+            t.pendown()
+            # Set tree color to brown
+            t.color("brown")
+            # Start drawing branches
+            draw_branch(trunk_length, t)
+        
+        # Set up the screen
+        screen = turtle.Screen()
+        screen.setup(width=800, height=600)
+        screen.bgcolor("lightgreen")
+        
+        # Create a turtle object
+        t = turtle.Turtle()
+        # Set drawing speed to maximum
+        t.speed(0)
+        
+        # Draw the tree with trunk length of 100
+        draw_tree(100, t)
+        
+        # Hide the turtle
+        t.hideturtle()
+        
+        # Keep the window open
+        screen.mainloop()
+            </pre>
+</body>
+
+</html>
