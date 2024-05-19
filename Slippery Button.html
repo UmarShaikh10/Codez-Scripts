@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slippery Button</title>
+  <style>
+    body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+  margin: 0;
+}
+
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#tricky-button{
+  position: absolute;
+  padding: 15px 30px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  const button = document.getElementById('tricky-button');
+
+  button.addEventListener('click', () => {
+    button.textContent = "I Lose!";
+    button.disabled = true;
+  });
+
+  button.addEventListener('mouseover',() =>{
+    if(button.disabled){
+      button.textContent ="Try Again";
+      button.disabled = false;
+    } else{
+      const container = document.querySelector('.container');
+      const containerRect = container.getBoundingClientRect();
+      const buttonRect = button.getBoundingClientRect();
+
+      const containerWidth = containerRect.width;
+      const containerHeight = containerRect.height;
+      const buttonWidth = buttonRect.width;
+      const buttonHeight = buttonRect.height;
+
+      const newLeft = Math.random() * (containerWidth - buttonWidth);
+      const newTop = Math.random()* (containerHeight - buttonHeight);
+
+      button.style.left = `${newLeft}px`;
+      button.style.top = `${newTop}px`;
+
+      }
+  })
+
+
+
+})
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <button id="tricky-button">Click Me If You Can</button>
+  </div>
+</body>
+
+</html>
