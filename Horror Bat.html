@@ -5,24 +5,97 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Horror Bat Animation</title>
-  <link href="styles.css" rel="stylesheet">
 </head>
 
 <body>
-  <div class="bat" style="left: 20%; top: -50px; animation: flyTopToBottom 5s linear infinite;"></div></body>
+  <h2>Horror Bat Animation</h2>
+  pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
 
-  <div class="bat" style="top: 30%; right: -100px; animation: flyRightToLeft 4 linear infinite;"></div>
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Horror Bat Animation&lt;/title&gt;
+  &lt;style&gt;
+    .bat {
+      width: 100px;
+      height: 50px;
+      background: url(bat.jpg) no-repeat;
+      background-size: contain;
+      position: fixed;
+      z-index: 9999;
+      animation: flyBottomToTop 7s linear infinite;
+    }
 
-  <div class="bat" style="top: 40%; left: -100px; animation: flyLeftToRight 5s linear infinite;"></div>
+    @keyframes flyLeftToRight {
+      0% {
+        transform: translateX(-100px) translateY(-50%);
+      }
 
-  <div class="bat" style="left: 40%; top: -50px; animation: flyTopToBottom 3s linear infinite;"></div>
+      100% {
+        transform: translateX(calc(100vw + 100px)) translateY(calc(-50% + 100px));
+      }
+    }
 
-  <div class="bat" style="top: 50%; right: -100px; animation: flyRightToLeft 5s linear infinite;"></div>
+    @keyframes flyTopToBottom {
+      0% {
+        transform: translateY(-100px) translateX(-50);
+      }
 
-  <div class="bat" style="left: 70%; bottom: -50px; animation: flyBottomToTop 5s linear infinite;"></div>
+      100% {
+        transform: translateY(calc(100vh + 100px)) translateX(calc(-50% + 50px));
+      }
+    }
 
-  <div class="bat" style="left: 90%; bottom: -50px; animation: flyBottomToTop 4s linear infinite;"></div>
+    @keyframes flyBottomToTop {
+      0% {
+        transform: translateY(100vh) translateX(-50%);
+      }
 
-  <div class="bat" style="bottom: 80%; left: -100px; animation: flyLeftToRight 3s linear infinite;"></div>
+      100% {
+        transform: translateY(-100px) translateX(calc(-50% + 50px));
+      }
+    }
+
+    @keyframes flyRightToLeft {
+      0% {
+        transform: translateX(calc(100vw + 100px)) translateY(-50%);
+      }
+
+      100% {
+        transform: translateX(-100px) translateY(calc(-50% + 100px));
+      }
+    }
+
+    body {
+      background-color: #202020;
+      overflow: hidden;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;div class="bat" style="left: 20%; top: -50px; animation: flyTopToBottom 5s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="top: 30%; right: -100px; animation: flyRightToLeft 4s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="top: 40%; left: -100px; animation: flyLeftToRight 5s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="left: 40%; top: -50px; animation: flyTopToBottom 3s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="top: 50%; right: -100px; animation: flyRightToLeft 5s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="left: 70%; bottom: -50px; animation: flyBottomToTop 5s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="left: 90%; bottom: -50px; animation: flyBottomToTop 4s linear infinite;"&gt;&lt;/div&gt;
+
+  &lt;div class="bat" style="bottom: 80%; left: -100px; animation: flyLeftToRight 3s linear infinite;"&gt;&lt;/div&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;
+  </pre>
 
 </html>
