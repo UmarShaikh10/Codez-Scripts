@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Creepy Button</title>
+</head>
+
+<body>
+  <h2>Creepy Button</h2>
+  <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;en&quot;&gt;
+    
+    &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+      &lt;title&gt;Creepy Button&lt;/title&gt;
+      &lt;style&gt;
+        @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+    
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          background-color: #000;
+          margin: 0;
+          font-family: 'Creepster', cursive;
+        }
+    
+        .button-container {
+          perspective: 1500px;
+        }
+    
+        .btn-3d {
+          background-color: #8B0000;
+          color: #fff;
+          border: none;
+          padding: 20px 40px;
+          font-size: 20px;
+          font-weight: bold;
+          cursor: pointer;
+          outline: none;
+          position: relative;
+          border-radius: 5px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+          transition: transform 0.3s, box-shadow 0.3s;
+          transform: perspective(1500px) rotateX(20deg) translateZ(50px);
+          text-shadow: 2px 2px 0 #4B0000, 4px 4px 0 #4B0000, 6px 6px 0 #4B0000, 8px 8px 0 #4B0000;
+          font-family: 'Creepster', cursive;
+        }
+    
+        .btn-3d::before {
+          content: &quot;&quot;;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #4B0000;
+          border-radius: 5px;
+          z-index: -1;
+          transform: perspective(1500px) rotateX(-20deg) translateZ(-50px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .btn-3d:hover {
+          transform: perspective(1500px) rotateX(0deg) translateZ(0);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+          text-shadow: 0px 0px 0 #4B0000;
+        }
+    
+        .btn-3d:hover::before {
+          transform: perspective(1500px) rotateX(0deg) translateZ(0);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.8);
+        }
+      &lt;/style&gt;
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+      &lt;div class=&quot;button-container&quot;&gt;
+        &lt;button class=&quot;btn-3d&quot;&gt;Creepy Button&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/body&gt;
+    
+    &lt;/html&gt;
+      </pre>
+</body>
+
+</html>
