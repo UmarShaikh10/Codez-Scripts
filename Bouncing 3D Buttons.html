@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bouncing 3D Buttons</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* styles.css */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #282c34;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      perspective: 1000px;
+    }
+
+    .bouncing-button {
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      padding: 15px 30px;
+      cursor: pointer;
+      transform: translateY(-500px) translateZ(0);
+      animation: fallBounce 2s ease forwards;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.6),
+        0 0 40px rgba(255, 255, 255, 0.4);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .bouncing-button.button-1 {
+      background: radial-gradient(circle, #ff7e5f, #feb47b);
+    }
+
+    .bouncing-button.button-1:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(255, 126, 95, 0.8),
+        0 0 60px rgba(255, 180, 123, 0.6);
+    }
+
+    .bouncing-button.button-2 {
+      background: radial-gradient(circle, #38ef7d, #11998e);
+    }
+
+    .bouncing-button.button-2:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(56, 239, 125, 0.8),
+        0 0 60px rgba(17, 153, 142, 0.6);
+    }
+
+    .bouncing-button.button-3 {
+      background: radial-gradient(circle, #ffffff, #ffffff);
+      color: #0a3d62;
+      /* Dark blue text color */
+    }
+
+    .bouncing-button.button-3:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(243, 236, 239, 0.8),
+        0 0 60px rgba(235, 217, 226, 0.6);
+    }
+
+    .delay-1 {
+      animation-delay: 0s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.5s;
+    }
+
+    .delay-3 {
+      animation-delay: 1s;
+    }
+
+    @keyframes fallBounce {
+      0% {
+        transform: translateY(-500px) translateZ(0);
+      }
+
+      20% {
+        transform: translateY(0) translateZ(0);
+      }
+
+      40% {
+        transform: translateY(-150px) translateZ(0);
+      }
+
+      60% {
+        transform: translateY(0) translateZ(0);
+      }
+
+      75% {
+        transform: translateY(-75px) translateZ(0);
+      }
+
+      85% {
+        transform: translateY(0) translateZ(0);
+      }
+
+      92% {
+        transform: translateY(-30px) translateZ(0);
+      }
+
+      97% {
+        transform: translateY(0) translateZ(0);
+      }
+
+      99% {
+        transform: translateY(-10px) translateZ(0);
+      }
+
+      100% {
+        transform: translateY(0) translateZ(0);
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button class="bouncing-button button-1 delay-1">Orange</button>
+    <button class="bouncing-button button-3 delay-3">White</button>
+    <button class="bouncing-button button-2 delay-2">Green</button>
+  </div>
+</body>
+
+</html>
