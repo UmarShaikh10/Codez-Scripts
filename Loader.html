@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loader Control Button</title>
+</head>
+
+<body>
+  <h2>Loader Control Button</h2>
+  <pre>
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang="en"&gt;
+    
+    &lt;head&gt;
+      &lt;meta charset="UTF-8"&gt;
+      &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+      &lt;title&gt;Loader Control Button&lt;/title&gt;
+      &lt;style&gt;
+        body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          background-color: #000;
+          /* Dark black background */
+        }
+    
+        .fan-container {
+          position: relative;
+          width: 100px;
+          height: 100px;
+          margin-bottom: 50px;
+          /* Increased space between fan and button */
+        }
+    
+        .fan {
+          width: 100px;
+          height: 100px;
+          border: 10px solid #fff;
+          /* White border */
+          border-top: 10px solid transparent;
+          border-radius: 50%;
+          animation: spin 0s linear infinite;
+          box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff;
+          /* Glowing effect */
+          margin-left: -7%;
+        }
+    
+        .control-button {
+          padding: 10px 20px;
+          font-size: 16px;
+          color: #ff0;
+          /* Bright yellow text */
+          font-family: "Arial", sans-serif;
+          /* Different font family */
+          background-color: transparent;
+          /* Transparent background */
+          border: 2px solid #ff0;
+          /* Yellow border */
+          border-radius: 50px;
+          cursor: pointer;
+          transition: all 0.3s;
+          /* Smooth transition for all properties */
+          box-shadow: 0 0 10px #ff0, 0 0 20px #ff0, 0 0 30px #ff0;
+          /* Yellow shadow */
+          margin-top: 20px;
+        }
+    
+        .control-button:hover {
+          background-color: #ff0;
+          /* Yellow background on hover */
+          color: #000;
+          /* Change text color to black on hover */
+          transform: scale(1.1);
+          /* Increase size on hover */
+        }
+    
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+    
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      &lt;/style&gt;
+    &lt;/head&gt;
+    
+    &lt;body&gt;
+      &lt;div class="fan-container"&gt;
+        &lt;div class="fan" id="fan"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;button class="control-button" id="control-button"&gt;Turn On&lt;/button&gt;
+      &lt;script&gt;
+        const fan = document.getElementById('fan');
+        const controlButton = document.getElementById('control-button');
+        let isFanOn = false;
+        let fanRotation = 0;
+    
+        controlButton.addEventListener('click', () =&gt; {
+          isFanOn = !isFanOn;
+    
+          if (isFanOn) {
+            fan.style.animation = `spin 1s linear infinite`;
+            controlButton.textContent = 'Turn Off';
+          } else {
+            fanRotation = getCurrentRotation();
+            fan.style.animation = 'none'; // Stop animation
+            fan.style.transform = `rotate(${fanRotation}deg)`; // Set fan to stop at current rotation
+            controlButton.textContent = 'Turn On';
+          }
+        });
+    
+        function getCurrentRotation() {
+          const style = window.getComputedStyle(fan);
+          const transform = style.getPropertyValue('transform');
+          const matrix = transform.match(/^matrix\((.+)\)$/);
+          if (matrix) {
+            const values = matrix[1].split(',');
+            return Math.round(Math.atan2(values[1], values[0]) * (180 / Math.PI));
+          }
+          return 0;
+        }
+      &lt;/script&gt;
+    &lt;/body&gt;
+    
+    &lt;/html&gt;
+    </pre>
+
+</body>
+
+</html>
