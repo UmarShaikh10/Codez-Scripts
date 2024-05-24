@@ -1,0 +1,92 @@
+<body>
+<h2>Star Button</h2>
+  <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Star Button Effect&lt;/title&gt;
+  &lt;style&gt;
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-size: cover;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .button-container {
+      position: relative;
+    }
+
+    .breaking-button {
+      padding: 15px 30px;
+      font-size: 16px;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: glow 2s infinite alternate;
+    }
+
+    .star {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: yellow;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+      opacity: 0;
+      transition: transform 1s, opacity 1s;
+    }
+
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 30px #007bff;
+      }
+
+      to {
+        box-shadow: 0 0 20px #007bff, 0 0 30px #007bff, 0 0 40px #007bff;
+      }
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div class="button-container"&gt;
+    &lt;button class="breaking-button"&gt;Click Me&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+  document.querySelector('.breaking-button').addEventListener('click', function () {
+    const button = this;
+    const buttonRect = button.getBoundingClientRect();
+    for (let i = 0; i < 50; i++) { // Increased the number of stars to 50
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = `${Math.random() * buttonRect.width}px`;
+      star.style.top = `${Math.random() * buttonRect.height}px`;
+      button.appendChild(star);
+
+      setTimeout(() => {
+        star.style.transform = `translate(${Math.random() * 300 - 150}px, ${Math.random() * 300 - 150}px) rotate(${Math.random() * 1080}deg)`;
+        star.style.opacity = '1';
+      }, 100);
+
+      star.addEventListener('transitionend', () => {
+        star.remove();
+      });
+    }
+  });
+&lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre>
+</body>
