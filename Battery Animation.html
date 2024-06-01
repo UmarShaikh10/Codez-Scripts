@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battery Animation</title>
+</head>
+
+<body>
+  <h2>Battery Animation</h2>
+  <pre>
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang=&quot;en&quot;&gt;
+      
+      &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+        &lt;title&gt;Battery Animation&lt;/title&gt;
+        &lt;style&gt;
+          body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #000000;
+          }
+      
+          .battery {
+            width: 200px;
+            height: 100px;
+            border: 4px solid #333;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            background-color: #fff;
+          }
+      
+          .battery::after {
+            content: '';
+            width: 20px;
+            height: 40px;
+            background-color: #333;
+            position: absolute;
+            top: 30px;
+            right: -24px;
+            border-radius: 2px;
+          }
+      
+          .battery-fill {
+            width: 0%;
+            height: 100%;
+            background-color: red;
+            /* Initial color */
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: width 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 20px red;
+            /* Initial glow */
+          }
+        &lt;/style&gt;
+      &lt;/head&gt;
+      
+      &lt;body&gt;
+        &lt;div class=&quot;battery&quot;&gt;
+          &lt;div class=&quot;battery-fill&quot; id=&quot;battery-fill&quot;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      
+        &lt;script&gt;
+          let fillLevel = 0;
+          let increasing = true;
+      
+          function animateBattery() {
+            const batteryFill = document.getElementById('battery-fill');
+      
+            if (increasing) {
+              fillLevel += 10;
+              if (fillLevel >= 100) {
+                fillLevel = 100;
+                increasing = false;
+              }
+            } else {
+              fillLevel -= 10;
+              if (fillLevel <= 0) {
+                fillLevel = 0;
+                increasing = true;
+              }
+            }
+      
+            batteryFill.style.width = `${fillLevel}%`;
+      
+            // Calculate color based on fill level
+            let green = Math.round((fillLevel / 100) * 255);
+            let red = 255 - green;
+            let color = `rgb(${red}, ${green}, 0)`;
+            batteryFill.style.backgroundColor = color;
+      
+            // Set box-shadow to create a glowing effect
+            batteryFill.style.boxShadow = `0 0 20px ${color}`;
+          }
+      
+          // Animate the battery every half second
+          setInterval(animateBattery, 500);
+      
+        &lt;/script&gt;
+      &lt;/body&gt;
+      
+      &lt;/html&gt;
+  </pre>
+
+</body>
+
+</html>
