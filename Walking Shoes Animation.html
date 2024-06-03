@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walking Shoes Animation</title>
+</head>
+
+<body>
+    <h2>Walking Shoes Animation</h2>
+    <pre>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang=&quot;en&quot;&gt;
+
+        &lt;head&gt;
+            &lt;meta charset=&quot;UTF-8&quot;&gt;
+            &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+            &lt;title&gt;Walking Shoes Animation&lt;/title&gt;
+            &lt;style&gt;
+                body {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background-color: #f0f0f0;
+                    margin: 0;
+                }
+
+                .container {
+                    position: relative;
+                    width: 200px;
+                    height: 100px;
+                }
+
+                .shoe {
+                    position: absolute;
+                    width: 80px;
+                    height: 40px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .shoe-left {
+                    background-image: url('left-shoe.png');
+                    /* Replace with the actual path to the left shoe image */
+                    animation: walkLeft 1s infinite;
+                }
+
+                .shoe-right {
+                    background-image: url('left-shoe.png');
+                    /* Replace with the actual path to the right shoe image */
+                    animation: walkRight 1s infinite;
+                }
+
+                @keyframes walkLeft {
+
+                    0%,
+                    100% {
+                        bottom: 0;
+                        left: 10px;
+                        transform: rotate(0deg);
+                    }
+
+                    25% {
+                        bottom: 15px;
+                        left: 15px;
+                        transform: rotate(10deg);
+                    }
+
+                    50% {
+                        bottom: 0;
+                        left: 20px;
+                        transform: rotate(0deg);
+                    }
+
+                    75% {
+                        bottom: -10px;
+                        left: 15px;
+                        transform: rotate(-10deg);
+                    }
+                }
+
+                @keyframes walkRight {
+
+                    0%,
+                    100% {
+                        bottom: 0;
+                        left: 10px;
+                        transform: rotate(0deg);
+                    }
+
+                    25% {
+                        bottom: 15px;
+                        left: 15px;
+                        transform: rotate(10deg);
+                    }
+
+                    50% {
+                        bottom: 0;
+                        left: 20px;
+                        transform: rotate(0deg);
+                    }
+
+                    75% {
+                        bottom: -10px;
+                        left: 15px;
+                        transform: rotate(-10deg);
+                    }
+                }
+            &lt;/style&gt;
+        &lt;/head&gt;
+
+        &lt;body&gt;
+            &lt;div class=&quot;container&quot;&gt;
+                &lt;div class=&quot;shoe shoe-left&quot;&gt;&lt;/div&gt;
+                &lt;div class=&quot;shoe shoe-right&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/body&gt;
+
+        &lt;/html&gt;
+    </pre>
+</body>
+
+</html>
